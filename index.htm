@@ -1,0 +1,211 @@
+ <!DOCTYPE html>
+<html lang="sl">
+
+
+  <head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta name="title" content="pelji.se">
+	<meta name="description" content="Poglej si trenutne poti mestnega avtobusa na področju Nove Gorice z okolico.">
+	<meta name="keywords" content="avtobus nova gorica, mestni prevoz nova gorica, bus nova gorica, vozni red nova gorica">
+	<meta name="robots" content="index, follow">
+	<meta name="language" content="Slovenian">
+	<meta name="author" content="pelji.se">
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" >
+	<link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" >
+	<link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" >
+	<link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" >
+
+	
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/favicons/site.webmanifest">
+	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ba1200">
+	<link rel="shortcut icon" href="/favicons/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="pelji.se">
+	<meta name="application-name" content="pelji.se">
+	<meta name="msapplication-TileColor" content="#ba1200">
+	<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#fefdfd">       
+
+    <title>
+      pelji.se
+    </title>
+
+  </head>
+
+
+  <body style="opacity: 0.0">
+	<div id="notification" onclick="$('.menu-item-routes').click();">
+	  <span id="bus-next"><span id="bus-next-data"></span></span> 
+	</div>
+
+    <div id="map" class="viewport">      
+    	<p class="text-center pt-5"><i class="las la-file-contract"></i><br>Za uporabo spletne aplikacije <b>pelji.se</b> se morate strinjati s <a href="#" id="modalConsentShow" onclick="modalConsentShow();">splošnimi pogoji uporabe</a>.</p>
+    </div>
+
+    <div id="routes" class="viewport">     
+      <h1>
+        <div class="container pt-1">
+          Vozni red
+        </div>
+      </h1> 
+    	<div class="container pt-5">
+  			<div class="row pt-5">
+  				<div class="col-sm-12">
+  					<div id="routes-data"></div>
+  				</div>
+  			</div>
+  		</div>
+    </div>
+
+    <div id="about" class="viewport"> 
+
+      <h1> 
+        <div class="container pt-1">
+          <img src="images/logo.png" alt="pelji.se" class="about-logo" /> pelji.se
+        </div>
+      </h1>           
+  		<div class="container pt-5 mt-5">
+  			<div class="row d-flex flex-row pt-5">
+  				<div class="col-md-4 col-sm-12 d-flex flex-column">
+  					<div class="about-box">
+	    				<p class="text-center pt-3"><i class="la la-leaf la-icon-large accent"></i></p>
+	    				<p class="text-left">Namen spletne aplikacije <span class="accent">pelji.se</span> je <b>omogočiti dostop do informacij o brezplačnem mestnem avtobusu</b> na področju Nove Gorice z okolico in spodbujati k uporabi javnega prevoza.</p>
+	    			</div>
+  				</div>
+  				<div class="col-md-4 col-sm-12 d-flex flex-column">
+  					<div class="about-box">
+	    				<p class="text-center pt-3"><i class="la la-business-time la-icon-large accent"></i></p>
+	    				<p class="text-left">Aplikacija deluje na osnovi javno objavljenega voznega reda in zatorej <b>ne more predvideti zamud avtobusov</b>.<!--, razen če uporabniki sami prispevajo podatke o lokacijah avtobusov.--></p>
+	    			</div>
+  				</div>
+  				<div class="col-md-4 col-sm-12 d-flex flex-column">
+  					<div class="about-box">
+	    				<p class="text-center pt-3"><i class="la la-low-vision la-icon-large accent"></i></p>
+	    				<p class="text-left">Skladno s splošnimi pogoji aplikacija <b>ne zbira osebnih podatkov</b> in torej ne izvaja obdelave osebnih podatkov, zato teh tudi ne posreduje tretjim osebam.</p>
+	    			</div>
+  				</div>
+
+  				<div class="col-md-12 col-sm-12 text-center pt-5">
+  					<p>Imate vprašanje? Pišite nam!</p>
+  					<p><a href="mailto:info@pelji.se" class="btn btn-danger">info@pelji.se</a></p>
+  				</div>
+
+			
+				<div class="libraries-wrapper">
+					<div class="libraries">
+						
+						<h6 class="mt-5">Uporabljene knjižnice:</h6>
+										
+						<div class="library"><b>OpenStreetMap</b>, <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer nofollow">© OpenStreetMap contributors</a></div>
+						
+						<div class="library"><b>OpenMapTiles</b>, <a href="https://openmaptiles.org/about/" target="_blank" rel="noopener noreferrer nofollow">© MapTiler team</a></div>
+						
+						<div class="library"><b>Leaflet</b>, <a href="http://leafletjs.com" target="_blank" rel="noopener noreferrer nofollow">© Vladimir Agafonkin and contributors</a></div>			
+						
+						<div class="library"><b>Leaflet.MovingMarker</b>, <a href="https://github.com/ewoken/Leaflet.MovingMarker" target="_blank" rel="noopener noreferrer nofollow">© ewoken and contributors</a></div>
+						
+						<div class="library"><b>Turf</b>, <a href="https://turfjs.org/" target="_blank" rel="noopener noreferrer nofollow">© TurfJS contributors</a></div>
+											
+						<div class="library"><b>jQuery</b>, <a href="https://openjsf.org/" target="_blank" rel="noopener noreferrer nofollow">© OpenJS Foundation and jQuery contributors</a></div>
+										
+						<div class="library"><b>Bootstrap</b>, © <a href="https://getbootstrap.com/docs/5.1/about/team/" target="_blank" rel="noopener noreferrer nofollow">Bootstrap team</a> and <a href="https://github.com/twbs/bootstrap/graphs/contributors" target="_blank" rel="noopener noreferrer nofollow">contributors</a></div>
+							 
+						<div class="library"><b>LineAwesome</b>, <a href="https://github.com/icons8/line-awesome" target="_blank" rel="noopener noreferrer nofollow">© Icons8</a></div>
+											
+					</div> 		
+				</div> 
+
+  			</div>  
+  		</div> 
+
+    </div> 
+
+    <!--
+    <div id="offline" class="viewport">     
+      <h1>
+        <div class="container pt-1">
+        	Brez povezave
+        </div>
+      </h1> 
+    	<div class="container pt-5">
+  			<div class="row pt-5">
+  				<div class="col-sm-12">  					
+    				<p class="text-center pt-5"><i class="la la-poo-storm la-icon-large"></i></p>
+    				<p class="text-center">Prišlo je do težav z internetno povezavo.</p>
+    				<p class="text-center"><button class="btn btn-danger">POSKUSI ZNOVA</button></p>
+  				</div>
+  			</div>
+  		</div>
+    </div>
+	-->
+
+    <div class="menu-container">
+    	<div class="menu">
+    		<a class="menu-item menu-item-active" onclick="menuItem(this)" data-menuitem="map" href="#">
+    			<i class="la la-map-marked"></i>
+    			<div>Avtobusi</div>
+    		</a>
+    		<a class="menu-item menu-item-tracking" onclick="trackingPopup(this)">
+    			<i class="la la-location-arrow"></i>
+    			<div>Sledenje</div>
+    		</a>
+    		<a class="menu-item menu-item-routes" onclick="menuItem(this)" data-menuitem="routes" href="#">
+    			<i class="la la-bus"></i>
+    			<div>Vozni red</div>
+    		</a>
+    		<a class="menu-item" onclick="menuItem(this)" data-menuitem="about" href="#">
+    			<i class="la la-kiss-wink-heart"></i>
+    			<div>Aplikacija</div>
+    		</a> 
+    	</div>
+
+    </div>
+
+    <div class="modal fade" id="modalConsent" tabindex="-1" aria-labelledby="modalConsentLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalConsentLabel"><i class="las la-file-contract"></i>&nbsp;Splošni pogoji uporabe</h5> 
+          </div>
+          <div class="modal-body">
+            <p>Uporabnik uporablja spletno aplikacijo <b>pelji.se</b> na lastno odgovornost.</p>
+            <p>Ker obstaja možnost, da se v objavljenih podatkih pojavijo napake, priporočamo, da te podatke uporabnik preveri tudi pri pristojni ustanovi, v primeru da sprejema pomembno odločitev na podlagi podatkov, ki so objavljeni v tej spletni aplikaciji. <b>Avtor spletne aplikacije ne odgovarja za nepravilnosti podatkov in morebitno iz tega razloga nastalo škodo.</b></p>
+            <p>Vaših osebnih podatkov ne obdelujemo.<!--Če uporabljate funkcionalnost sledenja avtobusu, <b>v sklopu beleženja lokacije <u>ne</u> shranjujemo vašega IP naslova,</b> zato so ti podatki nepovratno anonimizirani in posledično ne predstavljajo osebnih podatkov.--></p>
+            <p>Če uporabnik uporablja spletno aplikacijo, <b>se strinja s temi splošnimi pogoji uporabe.</b></p>
+            <p><i>ekipa pelji.se</i></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal" id="modalConsentReject" onclick="modalConsentReject()">Zapri</button>
+            <button type="button" class="btn btn-consent" data-bs-dismiss="modal" id="modalConsentAccept" onclick="modalConsentAccept()">Strinjam se</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap-5.1.3/css/bootstrap.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="vendor/leaflet-1.7.1/leaflet.css" media="print" onload="this.media='all'">
+    <!--<link rel="stylesheet" type="text/css" href="vendor/addtohomescreen/style/addtohomescreen.css">-->
+    <link rel="stylesheet" type="text/css" href="vendor/line-awesome-1.3.0/css/line-awesome.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="style.9af310.min.css">
+
+    <script type="text/javascript" src="vendor/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="vendor/leaflet-1.7.1/leaflet.js"></script>
+    <script type="text/javascript" src="vendor/leaflet-1.7.1/leaflet-movingMarker.js"></script>
+    <script type="text/javascript" src="vendor/turf-6.5.0/turf-6.5.0.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script> 
+    <!--<script type="text/javascript" src="vendor/addtohomescreen/src/addtohomescreen.js"></script>-->
+    <script type="text/javascript" src="script.9af310.min.js"></script>
+
+  </body>
+
+
+</html>

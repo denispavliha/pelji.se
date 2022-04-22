@@ -1,0 +1,26 @@
+{
+	"consent": {
+		"cookieName": "acceptPrivacyPolicy",
+		"cookieValue": "YesAccept",
+		"cookieDuration": "30" 
+	},
+	"map": {
+		"initialPosition": {
+			"lat": 45.952,
+			"lng": 13.66,
+			"zoom": 13
+		}
+	},
+	"paths": {
+		"colors": {
+			"1": "#15A8E2EF",
+			"2": "#FE00007F",
+			"4": "#00A24A6F",
+			"default": "#0000007F"
+		}
+	},
+	"visualization": {
+		"busDelayMinutesAfter": 22,
+		"busShowMinutesBefore": 2		
+	}
+}
