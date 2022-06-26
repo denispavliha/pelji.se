@@ -679,5 +679,9 @@ function menuItem(which)
 		}
 	}
 
+	analytics_pavliha_eu.trackPageView(which);
+
 	updateNotification();
 }
+
+var analytics_pavliha_eu = Matomo.getTracker("https://analytics.pavliha.eu/matomo.php", 1);
