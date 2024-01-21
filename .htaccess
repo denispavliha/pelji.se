@@ -1,0 +1,25 @@
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^www\.pelji\.se$
+RewriteRule ^(.*)$ "https\:\/\/pelji\.se\/$1" [R=301,L]
+
+<IfModule mod_headers.c>
+Header add X-Frame-Options sameorigin
+Header add Strict-Transport-Security "max-age=31536000; includeSubDomains; preload;"
+Header add Content-Security-Policy "default-src 'unsafe-inline' 'self' 'unsafe-eval' data: https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://fonts.googleapis.com/css2 https://fonts.gstatic.com https://analytics.pavliha.eu https://www.clarity.ms/tag/kp96znuerl"
+Header add X-Content-Type-Options "nosniff"
+Header add X-XSS-Protection "1; mode=block"
+Header add Referrer-Policy "origin-when-cross-origin"
+Header add Permissions-Policy "sync-xhr=(self)" 
+</IfModule>
+
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+</IfModule>
+
+ExpiresActive On
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
