@@ -19,7 +19,7 @@ SetOutputFilter DEFLATE
 </IfModule>
 
 ExpiresActive On
-ExpiresByType text/css "access plus 1 year"
-ExpiresByType application/javascript "access plus 1 year"
-ExpiresByType image/png "access plus 1 year"
-ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType text/css "access plus 1 day"
+ExpiresByType application/javascript "access plus 1 day"
+ExpiresByType image/png "access plus 1 day"
+ExpiresByType font/woff2 "access plus 1 day"
