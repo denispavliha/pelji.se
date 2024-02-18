@@ -258,7 +258,6 @@ function drawBus(path, start, direction, offset, transition = 950)
 			buses[generateBusIndex(path, start, direction)].addTo(map);
 
 			// tooltip
-			console.log(buses);
 			buses[generateBusIndex(path, start, direction)].bindPopup(generateBusTooltip(path, start, direction)); 
 
 			// refresh immediately - yes, recursion, so update will happen
