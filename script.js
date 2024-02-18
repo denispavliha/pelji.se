@@ -681,6 +681,12 @@ function menuItem(which)
 	analytics_pavliha_eu.trackPageView(which);
 
 	updateNotification();
+
+	// workaround for OpenStreetMap to sometimes glitch after switching app screens
+	if (menuActive == 'map')
+	{
+		resizeContainer();
+	}
 }
 
 var analytics_pavliha_eu = Matomo.getTracker("https://analytics.pavliha.eu/matomo.php", 1);
