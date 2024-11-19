@@ -7,7 +7,7 @@ RewriteRule ^(.*)$ "https\:\/\/pelji\.se\/$1" [R=301,L]
 <IfModule mod_headers.c>
 Header add X-Frame-Options sameorigin
 Header add Strict-Transport-Security "max-age=31536000; includeSubDomains; preload;"
-Header add Content-Security-Policy "default-src 'unsafe-inline' 'self' 'unsafe-eval' data: https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://fonts.googleapis.com/css2 https://fonts.gstatic.com https://analytics.pavliha.eu https://*.clarity.ms https://*.bing.com"
+Header add Content-Security-Policy "default-src 'unsafe-inline' 'self' 'unsafe-eval' data: https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://fonts.googleapis.com/css2 https://fonts.gstatic.com https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://*.bing.com"
 Header add X-Content-Type-Options "nosniff"
 Header add X-XSS-Protection "1; mode=block"
 Header add Referrer-Policy "origin-when-cross-origin"

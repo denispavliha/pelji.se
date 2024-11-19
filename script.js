@@ -678,7 +678,11 @@ function menuItem(which)
 		}
 	}
 
-	analytics_pavliha_eu.trackPageView(which);
+	if (typeof gtag === "function") {
+        gtag('event', 'page_view', {
+            page_path: which
+        });
+    }
 
 	updateNotification();
 
@@ -688,5 +692,3 @@ function menuItem(which)
 		resizeContainer();
 	}
 }
-
-var analytics_pavliha_eu = Matomo.getTracker("https://analytics.pavliha.eu/matomo.php", 1);
